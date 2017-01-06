@@ -1,0 +1,11 @@
+angular.module('pagefilter',[]);
+angular.module('cartService',[]);
+angular.module('myapp',['pagefilter','cartService','ngRoute','ngMessages']);
+angular.module('myapp').config(function($routeProvider){
+    $routeProvider
+        .when('/',{templateUrl:'views/productsList.html',controller:'productListCtrl'})
+        .when('/checkout',{templateUrl:'views/checkoutSummary.html',controller:'checkCtrl'})
+        .when('/placeorder',{templateUrl:'views/placeOrder.html'})
+        .when('/thanks',{templateUrl:'views/thankYou.html'})
+        .otherwise('/',{templateUrl:'views/productsList.html',controller:'productListCtrl'});
+})
